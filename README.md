@@ -24,6 +24,7 @@ composer require laravingo/turkiye-validator
 ```
 
 ### Publishing Assets
+
 To customize the configuration or error messages, publish the assets:
 
 ```bash
@@ -32,7 +33,23 @@ php artisan vendor:publish --tag=turkiye-validator-config
 
 ---
 
-## 🔥 Validation Rules (The Core)
+## ⚙️ Configuration
+
+After publishing, you can configure the package in `config/turkiye-validator.php`:
+
+```php
+return [
+    // Phone format options: 'E164' (+905...), 'NATIONAL' (05...), 'RAW' (5...)
+    'phone_format' => 'E164', 
+
+    // Character used for masking identity numbers
+    'mask_char' => '*', 
+];
+```
+
+---
+
+## 🔥 Validation Rules
 
 This package strictly implements official mathematical algorithms (checksums, modulo checks) rather than simple regex matching.
 
@@ -47,6 +64,7 @@ This package strictly implements official mathematical algorithms (checksums, mo
 | `turkish_iban` | Validates Turkish IBANs (TR prefix + Mod-97 checksum). | `TR12000...` |
 | `tr_id_card_serial`| Validates New Identity Card Serial Numbers. | `A12F34567` |
 | `kep_address` | Validates Registered Electronic Mail (KEP) addresses. | `info@company.kep.tr` |
+| `city_code` | Validates Turkish City Plate Codes (1-81). | `34`, `6`, `81` |
 
 ### Usage Example
 
@@ -61,7 +79,54 @@ $request->validate([
     'iban'            => 'required|turkish_iban',
     'serial_no'       => 'required|tr_id_card_serial',
     'kep_email'       => 'required|kep_address',
+    'city'            => 'required|city_code',
 ]);
+```
+
+---
+
+## 🏙️ Address & Data Service
+
+The package includes a data service to easily access official lists of Turkish cities and districts.
+
+### Usage
+
+```php
+use Laravingo\TurkiyeValidator\Facades\Turkiye;
+
+// Get All Cities (Plate Code => Name)
+$cities = Turkiye::cities(); 
+// Returns: [1 => 'Adana', ..., 34 => 'İstanbul', ...]
+
+// Get Districts for a City (by Plate Code)
+$districts = Turkiye::districts(34); 
+// Returns: ['Adalar', 'Arnavutköy', 'Ataşehir', ...]
+```
+
+---
+
+## 🛠️ Helper Functions
+
+Utility helpers are available via the `Turkiye` facade to format and mask sensitive data.
+
+### Phone Formatting
+
+```php
+// Input can be messy: "0532 123 45 67" or "532-123-4567"
+$formatted = Turkiye::formatPhoneNumber('0532 123 45 67');
+
+// Output depends on 'phone_format' config:
+// 'E164':     "+905321234567" (Default)
+// 'NATIONAL': "05321234567"
+// 'RAW':      "5321234567"
+```
+
+### Identity Masking
+
+```php
+$masked = Turkiye::maskIdentityNumber('12345678901');
+
+// Output (based on 'mask_char'): "123******01"
 ```
 
 ---
@@ -170,4 +235,3 @@ To run specific tests:
 ```bash
 vendor/bin/pest --filter=ValidationRulesTest
 ```
-

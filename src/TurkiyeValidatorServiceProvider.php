@@ -15,6 +15,8 @@ use Laravingo\TurkiyeValidator\Rules\TurkishLicensePlate;
 use Laravingo\TurkiyeValidator\Rules\TurkishIban;
 use Laravingo\TurkiyeValidator\Rules\TurkishIdCardSerial;
 use Laravingo\TurkiyeValidator\Rules\KepAddress;
+use Laravingo\TurkiyeValidator\Rules\CityCode;
+use Laravingo\TurkiyeValidator\Services\AddressService;
 use Laravingo\TurkiyeValidator\Utilities\TurkishHelper;
 
 class TurkiyeValidatorServiceProvider extends ServiceProvider
@@ -32,6 +34,10 @@ class TurkiyeValidatorServiceProvider extends ServiceProvider
         $this->app->extend(FakerGenerator::class, function ($faker) {
             $faker->addProvider(new TurkiyeProvider($faker));
             return $faker;
+        });
+
+        $this->app->singleton('turkiye.address', function () {
+            return new AddressService();
         });
     }
 
@@ -70,5 +76,9 @@ class TurkiyeValidatorServiceProvider extends ServiceProvider
         Validator::extend('kep_address', function ($attribute, $value, $parameters, $validator) {
             return (new KepAddress())->passes($attribute, $value);
         }, __('turkiye-validator::validation.kep_address'));
+
+        Validator::extend('city_code', function ($attribute, $value, $parameters, $validator) {
+            return (new CityCode())->passes($attribute, $value);
+        }, __('turkiye-validator::validation.city_code'));
     }
 }
