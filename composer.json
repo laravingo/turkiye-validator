@@ -1,6 +1,7 @@
 {
     "name": "laravingo/turkiye-validator",
     "description": "A Laravel package for Turkish specific validations.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Laravingo"
