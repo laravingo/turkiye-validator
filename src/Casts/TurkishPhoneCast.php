@@ -17,6 +17,6 @@ class TurkishPhoneCast implements CastsAttributes
 
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return (new TurkishSanitizer())->cleanPhone((string) $value);
+        return (new TurkishSanitizer)->cleanPhone((string) $value);
     }
 }

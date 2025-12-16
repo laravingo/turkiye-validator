@@ -16,7 +16,7 @@ class TurkishIban implements Rule
             return false;
         }
 
-        $rearranged = substr($iban, 4) . substr($iban, 0, 4);
+        $rearranged = substr($iban, 4).substr($iban, 0, 4);
 
         $numericIban = '';
         foreach (str_split($rearranged) as $char) {

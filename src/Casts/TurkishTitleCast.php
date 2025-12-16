@@ -17,6 +17,6 @@ class TurkishTitleCast implements CastsAttributes
 
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return (new TurkishSanitizer())->toUpper((string) $value);
+        return (new TurkishSanitizer)->toUpper((string) $value);
     }
 }

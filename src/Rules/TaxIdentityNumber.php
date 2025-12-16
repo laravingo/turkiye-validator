@@ -19,7 +19,7 @@ class TaxIdentityNumber implements Rule
 
         for ($i = 0; $i < 9; $i++) {
             $tmp = ($digits[$i] + 10 - ($i + 1)) % 10;
-            
+
             if ($tmp === 9) {
                 $sum += 9;
             } else {

@@ -51,8 +51,8 @@ class TurkiyeProvider extends Base
     {
         $prefixes = ['530', '531', '532', '533', '534', '535', '536', '537', '538', '539', '540', '541', '542', '543', '544', '545', '546', '547', '548', '549', '551', '552', '553', '554', '555', '559', '505', '506', '507', '501'];
         $prefix = $this->generator->randomElement($prefixes);
-        
-        return '+90' . $prefix . $this->generator->numerify('#######');
+
+        return '+90'.$prefix.$this->generator->numerify('#######');
     }
 
     public function turkishLicensePlate(): string
@@ -60,7 +60,7 @@ class TurkiyeProvider extends Base
         $cityCode = $this->generator->numberBetween(1, 81);
         $letters = $this->generator->toUpper($this->generator->lexify('???'));
         $numbers = $this->generator->numerify('###');
-        
+
         return sprintf('%02d %s %s', $cityCode, $letters, $numbers);
     }
 
@@ -69,12 +69,12 @@ class TurkiyeProvider extends Base
         $bankCode = $this->generator->numerify('#####');
         $reserve = '0';
         $account = $this->generator->numerify('################');
-        
-        $tempIban = $bankCode . $reserve . $account . '2927' . '00';
-        
+
+        $tempIban = $bankCode.$reserve.$account.'2927'.'00';
+
         $checksum = 98 - (int) bcmod($tempIban, '97');
-        
-        return 'TR' . sprintf('%02d', $checksum) . $bankCode . $reserve . $account;
+
+        return 'TR'.sprintf('%02d', $checksum).$bankCode.$reserve.$account;
     }
 
     public function turkishIdCardSerial(): string
@@ -84,11 +84,11 @@ class TurkiyeProvider extends Base
         $letter2 = $this->generator->regexify('[A-Z]{1}');
         $digits2 = $this->generator->numerify('#####');
 
-        return $letter1 . $digits1 . $letter2 . $digits2;
+        return $letter1.$digits1.$letter2.$digits2;
     }
 
     public function kepAddress(): string
     {
-        return $this->generator->userName . '@hs01.kep.tr';
+        return $this->generator->userName.'@hs01.kep.tr';
     }
 }

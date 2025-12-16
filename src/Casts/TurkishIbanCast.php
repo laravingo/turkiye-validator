@@ -17,6 +17,6 @@ class TurkishIbanCast implements CastsAttributes
 
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return (new TurkishSanitizer())->cleanIban((string) $value);
+        return (new TurkishSanitizer)->cleanIban((string) $value);
     }
 }

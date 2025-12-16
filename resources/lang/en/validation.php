@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'turkish_id' => 'The :attribute must be a valid Turkish identity number.',
     'turkish_phone' => 'The :attribute must be a valid Turkish phone number.',

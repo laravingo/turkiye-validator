@@ -11,6 +11,7 @@ class KepAddress implements Rule
     public function passes($attribute, $value): bool
     {
         $value = (string) $value;
+
         return filter_var($value, FILTER_VALIDATE_EMAIL) && str_ends_with($value, '.kep.tr');
     }
 

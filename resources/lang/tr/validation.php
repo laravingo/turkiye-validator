@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'turkish_id' => ':attribute geçerli bir T.C. Kimlik Numarası olmalıdır.',
     'turkish_phone' => ':attribute geçerli bir Türk telefon numarası olmalıdır.',
