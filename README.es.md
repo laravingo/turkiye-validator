@@ -230,7 +230,7 @@ Los mensajes de error cambiarán automáticamente a turco (por ejemplo, "Geçerl
 
 ## Licencia
 
-La Licencia MIT (MIT). Por favor, consulta el [Archivo de Licencia](LICENSE) para más información.
+La Licencia MIT (MIT). Por favor, consulta el [Archivo de Licencia](https://github.com/laravingo/turkiye-validator/blob/main/LICENSE.md) para más información.
 
 ---
 

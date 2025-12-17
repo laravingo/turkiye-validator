@@ -228,7 +228,7 @@ The error messages will automatically switch to Turkish (e.g., "Geçerli bir T.C
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/laravingo/turkiye-validator/blob/main/LICENSE.md) for more information.
 
 ---
 

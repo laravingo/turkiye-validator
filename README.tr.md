@@ -230,7 +230,7 @@ Hata mesajları otomatik olarak Türkçe'ye geçecektir (örneğin, "Geçerli bi
 
 ## Lisans
 
-MIT Lisansı (MIT). Daha fazla bilgi için lütfen [Lisans Dosyasına](LICENSE) bakın.
+MIT Lisansı (MIT). Daha fazla bilgi için lütfen [Lisans Dosyasına](https://github.com/laravingo/turkiye-validator/blob/main/LICENSE.md) bakın.
 
 ---
 
