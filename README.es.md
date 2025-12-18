@@ -16,7 +16,7 @@
 [![License](https://img.shields.io/packagist/l/laravingo/turkiye-validator.svg?style=flat-square)](https://packagist.org/packages/laravingo/turkiye-validator)
 
 ![PHP Version](https://img.shields.io/badge/php-%5E8.2-777BB4.svg?style=flat-square)
-![Laravel Version](https://img.shields.io/badge/laravel-10.x%20%7C%2011.x-FF2D20.svg?style=flat-square)
+![Laravel Version](https://img.shields.io/badge/laravel-10.x%20%7C%2011.x%20%7C%2012.x-FF2D20.svg?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)
 
 **La navaja suiza definitiva para la validación, sanitización y pruebas de datos turcos en Laravel.**
